@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="hu" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equilor Wealth Office - Operatív Vagyonoptimalizálás</title>
+    
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Fonts: Playfair Display for Headings (Premium feel), Inter for UI/Body (Readability) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Chosen Palette: "Executive Harmony"
+         Base: Warm Neutral (#f8f7f5) for reading comfort.
+         Primary: Deep Navy (#0f172a) for authority and branding.
+         Accent: Gold/Amber (#fbbf24) for highlights and calls to action.
+         Text: Dark Gray (#334155) for body text.
+    -->
+
+    <!-- Application Structure Plan:
+         1. Hero: Hook the user with the "Wealth Optimization" concept.
+         2. Strategic Fit: Why Equilor? (Synergies).
+         3. The Process: 7 Steps Methodology (Visual Flow).
+         4. Technology Strategy: The Three Pillars (Lean -> RPA -> AI). Integrated view.
+         5. Evidence (Case Studies): Interactive Tabs showing "Before/After" scenarios (HR, Reporting, Crisis Management).
+         6. Future (Hybrid AI): Interactive Chat simulation showing AI+RPA working together.
+         7. Business Case (ROI): Dynamic Chart.
+         8. CTA: Pilot Program.
+    -->
+
+    <!-- Visualization & Content Choices:
+         - Technology Strategy -> 3-Column Card Layout: Lean (Base), RPA (Action), AI (Intelligence). Visual arrows imply flow.
+         - Case Studies -> Tabbed Interface: Allows switching between HR, Finance, and Crisis scenarios without cluttering the screen.
+         - Hybrid AI -> Mock Chat Interface: Demonstrates the "Chat with Docs" concept intuitively.
+         - ROI -> Chart.js Bar Chart: Dynamic interaction makes the financial benefit tangible.
+    -->
+
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <style type="text/tailwindcss">
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f7f5;
+            color: #334155;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Custom Chart Container */
+        .chart-wrapper {
+            position: relative;
+            width: 100%;
+            height: 300px;
+        }
+        @media (min-width: 768px) {
+            .chart-wrapper {
+                height: 400px;
+            }
+        }
+
+        /* Interactive Elements Styling */
+        .nav-link {
+            @apply text-sm font-medium text-slate-300 hover:text-amber-400 transition-colors cursor-pointer;
+        }
+        
+        .tab-btn {
+            @apply px-6 py-3 text-sm font-bold uppercase tracking-wider border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition-all duration-300;
+        }
+        .tab-btn.active {
+            @apply border-amber-500 text-slate-900 bg-white;
+        }
+
+        .case-card {
+            @apply hidden animate-fade-in;
+        }
+        .case-card.active {
+            @apply block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        /* Chat Bubble Styling */
+        .chat-bubble {
+            @apply p-4 rounded-2xl max-w-[85%] mb-4 relative shadow-sm;
+        }
+        .chat-user {
+            @apply bg-slate-200 text-slate-800 self-start rounded-bl-none;
+        }
+        .chat-ai {
+            @apply bg-slate-800 text-amber-50 self-end rounded-br-none ml-auto;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-slate-900/95 backdrop-blur shadow-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-white tracking-wider"><span class="text-amber-500">Equilor</span> Strategic Partner</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#strategia" class="nav-link">Stratégia</a>
+                        <a href="#modszertan" class="nav-link">Módszertan</a>
+                        <a href="#technologia" class="nav-link">3 Pillér</a>
+                        <a href="#esettanulmanyok" class="nav-link text-amber-400">Esettanulmányok</a>
+                        <a href="#jovo" class="nav-link">Jövőkép</a>
+                        <a href="#roi" class="nav-link">ROI</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION: The Concept -->
+    <section id="strategia" class="relative bg-slate-900 pt-32 pb-20 overflow-hidden">
+        <!-- Background Decor -->
+        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-amber-500 to-amber-700"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="inline-block px-4 py-1 mb-6 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-400 text-sm font-semibold tracking-wide uppercase">
+                Új Dimenzió a Vagyonkezelésben
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                Operatív <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-500">Vagyonoptimalizálás</span>
+            </h1>
+            <p class="mt-4 max-w-3xl mx-auto text-xl text-slate-300 leading-relaxed">
+                Nem csupán a vagyont kezeljük, hanem segítünk azt <strong>hatékonyan megtermelni</strong>.
+                A "Corporate Concierge" szolgáltatás, amely Lean, RPA és AI technológiákkal növeli a portfólió cégek értékét.
+            </p>
+
+            <!-- Synergies Cards -->
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                <div class="bg-slate-800/50 p-8 rounded-xl border border-slate-700 hover:border-amber-500/50 transition-colors">
+                    <i class="fa-solid fa-chart-line text-3xl text-amber-500 mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Portfóliókezelés</h3>
+                    <p class="text-slate-400">Hozam-maximalizálás a forrásnál. A hatékonyabb cég több befektethető tőkét termel.</p>
+                </div>
+                <div class="bg-slate-800/50 p-8 rounded-xl border border-slate-700 hover:border-amber-500/50 transition-colors">
+                    <i class="fa-solid fa-bell-concierge text-3xl text-amber-500 mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Corporate Concierge</h3>
+                    <p class="text-slate-400">Levesszük az operatív terheket a cégvezetésről, ahogy az EWO Concierge a magánéletről.</p>
+                </div>
+                <div class="bg-slate-800/50 p-8 rounded-xl border border-slate-700 hover:border-amber-500/50 transition-colors">
+                    <i class="fa-solid fa-shield-halved text-3xl text-amber-500 mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Kockázatkezelés</h3>
+                    <p class="text-slate-400">Valós idejű "Operatív Monitoring" a havi díjas szolgáltatás keretében.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. METHODOLOGY: 7 Steps -->
+    <section id="modszertan" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">A 7 Lépéses Módszertan</h2>
+                <p class="text-lg text-slate-600">Nemzetközi BPM szabványokra épülő, kockázatmentes folyamat.</p>
+            </div>
+
+            <div class="relative">
+                <!-- Connecting Line -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-slate-200 -translate-y-1/2 z-0"></div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+                    <!-- Step 0-1 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg border border-slate-100 text-center group hover:-translate-y-2 transition-transform duration-300">
+                        <div class="w-16 h-16 mx-auto bg-slate-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-amber-500 transition-colors">
+                            <i class="fa-solid fa-magnifying-glass text-2xl text-slate-600 group-hover:text-white"></i>
+                        </div>
+                        <div class="text-sm font-bold text-amber-600 mb-1">0-1. FÁZIS</div>
+                        <h3 class="text-lg font-bold text-slate-900">Diagnózis</h3>
+                        <p class="text-sm text-slate-500 mt-2">Adatvezérelt átvilágítás és ROI becslés. Kockázatmentes belépő.</p>
+                    </div>
+
+                    <!-- Step 2-3 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg border border-slate-100 text-center group hover:-translate-y-2 transition-transform duration-300">
+                        <div class="w-16 h-16 mx-auto bg-slate-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-amber-500 transition-colors">
+                            <i class="fa-solid fa-compass-drafting text-2xl text-slate-600 group-hover:text-white"></i>
+                        </div>
+                        <div class="text-sm font-bold text-amber-600 mb-1">2-3. FÁZIS</div>
+                        <h3 class="text-lg font-bold text-slate-900">Tervezés</h3>
+                        <p class="text-sm text-slate-500 mt-2">Szűk keresztmetszetek és gyökérokok feltárása. Megoldási terv.</p>
+                    </div>
+
+                    <!-- Step 4-5 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg border border-slate-100 text-center group hover:-translate-y-2 transition-transform duration-300">
+                        <div class="w-16 h-16 mx-auto bg-slate-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-amber-500 transition-colors">
+                            <i class="fa-solid fa-code text-2xl text-slate-600 group-hover:text-white"></i>
+                        </div>
+                        <div class="text-sm font-bold text-amber-600 mb-1">4-5. FÁZIS</div>
+                        <h3 class="text-lg font-bold text-slate-900">Kivitelezés</h3>
+                        <p class="text-sm text-slate-500 mt-2">Lean, RPA fejlesztés és AI implementáció. A "Nagy Projekt".</p>
+                    </div>
+
+                    <!-- Step 7 -->
+                    <div class="bg-slate-900 p-6 rounded-lg shadow-xl border border-slate-800 text-center group hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-amber-500 text-white text-xs font-bold px-2 py-1">RETAINER</div>
+                        <div class="w-16 h-16 mx-auto bg-slate-800 rounded-full flex items-center justify-center mb-4 group-hover:bg-amber-500 transition-colors">
+                            <i class="fa-solid fa-infinity text-2xl text-amber-500 group-hover:text-white"></i>
+                        </div>
+                        <div class="text-sm font-bold text-amber-500 mb-1">7. FÁZIS</div>
+                        <h3 class="text-lg font-bold text-white">Fenntartás</h3>
+                        <p class="text-sm text-slate-400 mt-2">Havi audit és KPI monitoring. Folyamatos passzív bevétel.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. TECHNOLOGY: The 3 Pillars (Lean - RPA - AI) -->
+    <section id="technologia" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-amber-600 font-bold tracking-wide uppercase">Technológiai Stratégia</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mt-2">A Stabilitás Három Pillére</h2>
+                <p class="text-lg text-slate-600 mt-4">Nem automatizálunk rossz folyamatot. A három szint egymásra épülve alkot stabil rendszert.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                
+                <!-- Arrow Connectors (Desktop only) -->
+                <div class="hidden md:block absolute top-1/2 left-1/3 w-16 h-16 -ml-8 -mt-8 text-slate-300 z-0">
+                    <i class="fa-solid fa-arrow-right text-4xl"></i>
+                </div>
+                <div class="hidden md:block absolute top-1/2 left-2/3 w-16 h-16 -ml-8 -mt-8 text-slate-300 z-0">
+                    <i class="fa-solid fa-arrow-right text-4xl"></i>
+                </div>
+
+                <!-- 1. Lean Card (Base) -->
+                <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-blue-500 relative z-10 transform transition hover:-translate-y-1 hover:shadow-lg">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-filter text-3xl text-blue-600"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-800 text-center mb-2">1. LEAN</h3>
+                    <p class="text-center text-sm font-bold text-slate-500 uppercase tracking-wide mb-6">"Az Alap"</p>
+                    <p class="text-slate-600 text-center mb-6">
+                        Mielőtt automatizálnánk, rendet teszünk. A folyamatok egyszerűsítése és a veszteség megszüntetése.
+                    </p>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start"><i class="fa-solid fa-check text-blue-500 mt-1 mr-2"></i> Folyamattisztítás</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-blue-500 mt-1 mr-2"></i> Standardizálás</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-blue-500 mt-1 mr-2"></i> Veszteségcsökkentés</li>
+                    </ul>
+                </div>
+
+                <!-- 2. RPA Card (Automation) -->
+                <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-green-500 relative z-10 transform transition hover:-translate-y-1 hover:shadow-lg">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-robot text-3xl text-green-600"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-800 text-center mb-2">2. RPA</h3>
+                    <p class="text-center text-sm font-bold text-slate-500 uppercase tracking-wide mb-6">"A Kéz"</p>
+                    <p class="text-slate-600 text-center mb-6">
+                        A már tiszta, standard folyamatot átadjuk a robotnak. Gyors, pontos és fáradhatatlan végrehajtás.
+                    </p>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2"></i> Szabályalapú működés</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2"></i> Nagy volumen kezelése</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2"></i> 100% pontosság</li>
+                    </ul>
+                </div>
+
+                <!-- 3. AI Card (Intelligence) -->
+                <div class="bg-slate-900 p-8 rounded-xl shadow-xl border-t-4 border-amber-500 relative z-10 transform transition hover:-translate-y-1 hover:shadow-2xl">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-16 h-16 bg-amber-900/50 rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-brain text-3xl text-amber-500"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white text-center mb-2">3. AI</h3>
+                    <p class="text-center text-sm font-bold text-amber-500 uppercase tracking-wide mb-6">"Az Értelem"</p>
+                    <p class="text-slate-300 text-center mb-6">
+                        Ahol a szabály véget ér, ott kezdődik az intelligencia. Döntéstámogatás és nem-strukturált adat kezelése.
+                    </p>
+                    <ul class="space-y-3 text-sm text-slate-300">
+                        <li class="flex items-start"><i class="fa-solid fa-check text-amber-500 mt-1 mr-2"></i> Kognitív képességek</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-amber-500 mt-1 mr-2"></i> Dokumentum értelmezés</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-amber-500 mt-1 mr-2"></i> Adaptív válaszadás</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. CASE STUDIES (Evidence) - Interactive Tabs -->
+    <section id="esettanulmanyok" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="text-amber-600 font-bold tracking-wide uppercase">Bizonyítékok</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mt-2">Esettanulmányok a Gyakorlatból</h2>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="flex flex-wrap justify-center mb-12 border-b border-slate-200">
+                <button class="tab-btn active" onclick="showCase('hr')">HR & Tömeges</button>
+                <button class="tab-btn" onclick="showCase('reporting')">Riportálás</button>
+                <button class="tab-btn" onclick="showCase('finance')">Számlázás</button>
+                <button class="tab-btn" onclick="showCase('crisis')">Skálázhatóság</button>
+            </div>
+
+            <!-- Case Content Area -->
+            <div class="min-h-[400px]">
+                
+                <!-- Case 1: HR -->
+                <div id="case-hr" class="case-card active bg-slate-50 rounded-2xl p-8 border border-slate-100 shadow-sm">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <div class="badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-bold inline-block mb-4">NAGYVÁLLALAT</div>
+                            <h3 class="text-3xl font-bold text-slate-900 mb-4">15.000+ Beléptetés Évente</h3>
+                            <p class="text-lg text-slate-600 mb-6">
+                                Magas fluktuáció és alkalmi munkaerő. A HR adminisztrációt teljesen leterhelte az adatrögzítés.
+                            </p>
+                            <div class="flex items-center space-x-8">
+                                <div>
+                                    <p class="text-sm text-slate-500 uppercase">Manuális idő</p>
+                                    <p class="text-2xl font-bold text-red-500">8-11 perc</p>
+                                </div>
+                                <i class="fa-solid fa-arrow-right text-slate-300"></i>
+                                <div>
+                                    <p class="text-sm text-slate-500 uppercase">Robot idő</p>
+                                    <p class="text-2xl font-bold text-green-600">0 perc*</p>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-400 mt-2">*Emberi ráfordítás</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-md">
+                            <h4 class="font-bold text-slate-800 mb-4">A Megoldás</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start"><i class="fa-solid fa-check text-amber-500 mt-1 mr-3"></i> Automatikus adatkinyerés igazolványokból.</li>
+                                <li class="flex items-start"><i class="fa-solid fa-check text-amber-500 mt-1 mr-3"></i> Szerződés generálás és bérszámfejtés rögzítés.</li>
+                                <li class="flex items-start"><i class="fa-solid fa-check text-amber-500 mt-1 mr-3"></i> <span class="font-bold">Eredmény:</span> A HR a toborzással foglalkozik, nem a gépeléssel.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 2: Reporting -->
+                <div id="case-reporting" class="case-card bg-slate-50 rounded-2xl p-8 border border-slate-100 shadow-sm">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <div class="badge bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-bold inline-block mb-4">SALES & VEZETÉS</div>
+                            <h3 class="text-3xl font-bold text-slate-900 mb-4">A "Hétfő Reggel" Effektus</h3>
+                            <p class="text-lg text-slate-600 mb-6">
+                                Minden hétfő reggel 4 óra ment el azzal, hogy a vezetőségi ülésre manuálisan összemásolták az adatokat.
+                            </p>
+                            <div class="flex items-center space-x-8">
+                                <div>
+                                    <p class="text-sm text-slate-500 uppercase">Előtte</p>
+                                    <p class="text-2xl font-bold text-red-500">4 óra / hét</p>
+                                </div>
+                                <i class="fa-solid fa-arrow-right text-slate-300"></i>
+                                <div>
+                                    <p class="text-sm text-slate-500 uppercase">Utána</p>
+                                    <p class="text-2xl font-bold text-green-600">Azonnal</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-md">
+                            <h4 class="font-bold text-slate-800 mb-4">A Megoldás</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start"><i class="fa-solid fa-check text-amber-500 mt-1 mr-3"></i> A robot hétfő hajnalban fut le.</li>
+                                <li class="flex items-start"><i class="fa-solid fa-check text-amber-500 mt-1 mr-3"></i> 3 különböző rendszerből gyűjti az adatot.</li>
+                                <li class="flex items-start"><i class="fa-solid fa-check text-amber-500 mt-1 mr-3"></i> <span class="font-bold">Eredmény:</span> Reggel 8:00-kor a kész riport várja a vezérigazgatót az inboxban.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 3: Finance -->
+                <div id="case-finance" class="case-card bg-slate-50 rounded-2xl p-8 border border-slate-100 shadow-sm">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <div class="badge bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-bold inline-block mb-4">PÉNZÜGY</div>
+                            <h3 class="text-3xl font-bold text-slate-900 mb-4">900 Ügyfél Számlázása</h3>
+                            <p class="text-lg text-slate-600 mb-6">
+                                Részletes teljesítményigazolások és számlák generálása. Heti szinten 10 munkavállaló 3-4 óráját vitte el.
+                            </p>
+                            <div class="flex items-center space-x-8">
+                                <div>
+                                    <p class="text-sm text-slate-500 uppercase">Erőforrás</p>
+                                    <p class="text-2xl font-bold text-slate-700">10 Fő</p>
+                                </div>
+                                <i class="fa-solid fa-arrow-right text-slate-300"></i>
+                                <div>
+                                    <p class="text-sm text-slate-500 uppercase">Automatizáció</p>
+                                    <p class="text-2xl font-bold text-green-600">1 Robot</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-md">
+                            <h4 class="font-bold text-slate-800 mb-4">A Megoldás</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start"><i class="fa-solid fa-check text-amber-500 mt-1 mr-3"></i> Munkaidőn kívül (hétvégén) futó folyamat.</li>
+                                <li class="flex items-start"><i class="fa-solid fa-check text-amber-500 mt-1 mr-3"></i> PDF generálás és email küldés.</li>
+                                <li class="flex items-start"><i class="fa-solid fa-check text-amber-500 mt-1 mr-3"></i> <span class="font-bold">Eredmény:</span> 100% pontosság, felszabadult pénzügyi csapat.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Case 4: Crisis / Scalability -->
+                 <div id="case-crisis" class="case-card bg-slate-50 rounded-2xl p-8 border border-slate-100 shadow-sm">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <div class="badge bg-red-100 text-red-800 px-3 py-1 rounded-full text-xs font-bold inline-block mb-4">KRÍZISKEZELÉS</div>
+                            <h3 class="text-3xl font-bold text-slate-900 mb-4">5.000 Szerződés Azonnal</h3>
+                            <p class="text-lg text-slate-600 mb-6">
+                                Jogszabályi változás miatt azonnali rögzítés SAP és CRM rendszerben. Kézzel ez 1.250 munkaóra lett volna (8 ember 1 hónapig).
+                            </p>
+                            <div class="flex items-center space-x-8">
+                                <div>
+                                    <p class="text-sm text-slate-500 uppercase">Manuális igény</p>
+                                    <p class="text-2xl font-bold text-red-500">1.250 óra</p>
+                                </div>
+                                <i class="fa-solid fa-arrow-right text-slate-300"></i>
+                                <div>
+                                    <p class="text-sm text-slate-500 uppercase">Megoldás</p>
+                                    <p class="text-2xl font-bold text-green-600">Skálázás</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-amber-500">
+                            <h4 class="font-bold text-slate-800 mb-4">A Stratégiai Előny</h4>
+                            <p class="text-slate-600 mb-4">
+                                Mivel már létezett az automatizációs infrastruktúra, a robotokat azonnal átcsoportosítottuk. 
+                            </p>
+                            <ul class="space-y-3">
+                                <li class="flex items-start"><i class="fa-solid fa-check text-amber-500 mt-1 mr-3"></i> 24 órás futás (éjjel-nappal).</li>
+                                <li class="flex items-start"><i class="fa-solid fa-check text-amber-500 mt-1 mr-3"></i> Nem kellett 8 új embert felvenni 1 hónapra.</li>
+                                <li class="flex items-start"><i class="fa-solid fa-recycle text-amber-500 mt-1 mr-3"></i> <span class="font-bold">Tartós érték:</span> A megoldás ma is kezeli a napi volumeneket.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FUTURE: Hybrid AI (Chat Mockup) -->
+    <section id="jovo" class="py-20 bg-slate-900 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-slate-800/30 skew-x-12 transform translate-x-20"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="text-white">
+                    <div class="badge bg-amber-500/20 text-amber-400 px-3 py-1 rounded-full text-xs font-bold inline-block mb-6">A JÖVŐ: HIBRID AUTOMATIZÁCIÓ</div>
+                    <h2 class="text-4xl font-bold mb-6">Beszélgetés a Dokumentumokkal</h2>
+                    <p class="text-slate-300 text-lg mb-8">
+                        Ahol a dokumentum (Szerződés/PDF) és az ERP (SAP) eddig nem kommunikált, ott most az AI a tolmács.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-slate-800 p-3 rounded-lg mr-4">
+                                <i class="fa-solid fa-comments text-amber-500 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Vállalati Chatbot</h4>
+                                <p class="text-slate-400 text-sm">Kérdezzen a több száz oldalas ÁSZF-től úgy, mintha egy kollégával beszélne.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-slate-800 p-3 rounded-lg mr-4">
+                                <i class="fa-solid fa-network-wired text-amber-500 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Intelligens Összekapcsolás</h4>
+                                <p class="text-slate-400 text-sm">Az AI kiolvassa a keretösszeget a PDF-ből, a Robot pedig ellenőrzi a költést az SAP-ban.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mock Chat Interface -->
+                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-700 max-w-md mx-auto lg:mr-0">
+                    <div class="bg-slate-800 p-4 flex items-center border-b border-slate-700">
+                        <div class="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
+                        <div class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
+                        <div class="w-3 h-3 bg-green-500 rounded-full mr-4"></div>
+                        <span class="text-slate-300 text-sm font-mono">Equilor AI Assistant</span>
+                    </div>
+                    <div class="p-6 bg-slate-50 h-[400px] flex flex-col justify-end font-sans text-sm">
+                        
+                        <div class="chat-bubble chat-user animate-fade-in" style="animation-delay: 0.5s;">
+                            <i class="fa-solid fa-user mr-2 text-slate-500"></i>
+                            Mikor jár le a takarítási szerződés és mennyi a felmondási idő?
+                        </div>
+
+                        <div class="text-center text-xs text-slate-400 my-2 animate-fade-in" style="animation-delay: 1.5s;">
+                            <i class="fa-solid fa-gear fa-spin mr-1"></i> 300 PDF átvizsgálása...
+                        </div>
+
+                        <div class="chat-bubble chat-ai animate-fade-in" style="animation-delay: 2.5s;">
+                            <div class="font-bold text-amber-400 mb-1"><i class="fa-solid fa-robot mr-1"></i> AI Válasz</div>
+                            A szerződés <strong>2025. december 31-én</strong> jár le. <br>
+                            A felmondási idő <strong>30 nap</strong>, amit írásban kell jelezni.
+                        </div>
+                        
+                        <div class="chat-bubble chat-user animate-fade-in" style="animation-delay: 4s;">
+                            Van még keretünk a költésre?
+                        </div>
+
+                        <div class="chat-bubble chat-ai animate-fade-in" style="animation-delay: 5.5s;">
+                            <div class="font-bold text-amber-400 mb-1"><i class="fa-solid fa-robot mr-1"></i> Hibrid Válasz</div>
+                            Ellenőriztem:<br>
+                            1. Szerződéses keret (PDF): <strong>10M Ft</strong><br>
+                            2. Eddigi költés (SAP): <strong>7.2M Ft</strong><br>
+                            ----------------<br>
+                            <span class="text-green-400">Még 2.8M Ft költhető.</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. ROI SECTION: Business Case -->
+    <section id="roi" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900">A Megtérülés (ROI)</h2>
+                <p class="text-lg text-slate-600 mt-4">Kattintson a szektorokra a becsült adatok megtekintéséhez.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Controls & Stats -->
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="space-y-2">
+                        <button class="w-full text-left p-4 rounded-lg border transition-all duration-200 roi-selector active bg-slate-900 text-white border-slate-900" onclick="updateChart('manufacturing')">
+                            <div class="font-bold">Gyártó cég</div>
+                            <div class="text-sm opacity-80">Középvállalat (500 fő)</div>
+                        </button>
+                        <button class="w-full text-left p-4 rounded-lg border border-slate-200 hover:bg-slate-50 transition-all duration-200 roi-selector text-slate-600" onclick="updateChart('finance')">
+                            <div class="font-bold">Pénzügyi Szolgáltató</div>
+                            <div class="text-sm opacity-80">Nagyvállalat (1200 fő)</div>
+                        </button>
+                        <button class="w-full text-left p-4 rounded-lg border border-slate-200 hover:bg-slate-50 transition-all duration-200 roi-selector text-slate-600" onclick="updateChart('tech')">
+                            <div class="font-bold">IT / Tech cég</div>
+                            <div class="text-sm opacity-80">KKV (150 fő)</div>
+                        </button>
+                    </div>
+
+                    <div class="bg-amber-50 p-6 rounded-xl border border-amber-100 mt-8">
+                        <p class="text-sm text-amber-800 font-bold uppercase tracking-wide mb-2">Becsült Éves Megtakarítás</p>
+                        <div class="text-4xl font-bold text-slate-900" id="savings-display">~215 M Ft</div>
+                        <div class="mt-4 flex items-center text-green-600 font-bold">
+                            <i class="fa-solid fa-arrow-trend-up mr-2"></i>
+                            <span id="roi-display">2288% ROI</span>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-2">Megtérülési idő: <span id="payback-display">0.5 hónap</span></p>
+                    </div>
+                </div>
+
+                <!-- Chart Area -->
+                <div class="lg:col-span-2 bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
+                    <div class="chart-wrapper">
+                        <canvas id="roiChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CTA SECTION -->
+    <section class="py-24 bg-slate-900 text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        <div class="max-w-4xl mx-auto px-4 relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Indítsuk el a Pilot Programot</h2>
+            <p class="text-xl text-slate-300 mb-10">
+                Válasszunk ki közösen 2-3 céget, és bizonyítsuk be a koncepciót kockázatmentesen.
+                <br>
+                <span class="text-amber-400 font-serif italic mt-4 block">"Az Equilor Wealth Office nemcsak a vagyont kezeli, hanem segít azt hatékonyan megtermelni is."</span>
+            </p>
+            <a href="mailto:contact@equilor.hu" class="inline-block bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-4 px-10 rounded-full transition-transform hover:scale-105 shadow-lg shadow-amber-500/20">
+                Kapcsolatfelvétel
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-slate-500 text-sm">&copy; 2025 Stratégiai Partnerségi Javaslat. Belső használatra.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // --- TAB LOGIC ---
+        function showCase(caseId) {
+            // Hide all cards
+            document.querySelectorAll('.case-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            // Deactivate all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show specific card
+            document.getElementById('case-' + caseId).classList.add('active');
+            
+            // Activate specific button (finding by onclick attribute for simplicity in this example)
+            const btns = document.querySelectorAll('.tab-btn');
+            btns.forEach(btn => {
+                if(btn.getAttribute('onclick').includes(caseId)) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // --- CHART LOGIC ---
+        const roiData = {
+            manufacturing: { savings: 215, roi: '2288%', payback: '0.5 hónap', cost: 9.4, label: 'Gyártás' },
+            finance: { savings: 549, roi: '5233%', payback: '0.2 hónap', cost: 10.5, label: 'Pénzügy' },
+            tech: { savings: 110, roi: '1755%', payback: '0.6 hónap', cost: 6.3, label: 'IT/Tech' }
+        };
+
+        let myChart;
+
+        function initChart() {
+            const ctx = document.getElementById('roiChart').getContext('2d');
+            
+            // Gradient for the bar
+            const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+            gradient.addColorStop(0, 'rgba(251, 191, 36, 0.8)'); // Amber 400
+            gradient.addColorStop(1, 'rgba(245, 158, 11, 0.4)'); // Amber 600
+
+            myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Befektetés (Költség)', 'Nettó Megtakarítás'],
+                    datasets: [{
+                        label: 'Millió HUF',
+                        data: [9.4, 215], // Initial Data (Manufacturing)
+                        backgroundColor: [
+                            'rgba(148, 163, 184, 0.5)', // Slate 400 for Cost
+                            gradient // Gradient for Savings
+                        ],
+                        borderColor: [
+                            'rgba(148, 163, 184, 1)',
+                            'rgba(245, 158, 11, 1)'
+                        ],
+                        borderWidth: 1,
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.raw + ' Millió HUF';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: '#f1f5f9' }
+                        },
+                        x: {
+                            grid: { display: false }
+                        }
+                    },
+                    animation: {
+                        duration: 1000,
+                        easing: 'easeOutQuart'
+                    }
+                }
+            });
+        }
+
+        function updateChart(sector) {
+            const data = roiData[sector];
+            
+            // Update DOM text
+            document.getElementById('savings-display').innerText = `~${data.savings} M Ft`;
+            document.getElementById('roi-display').innerText = `${data.roi} ROI`;
+            document.getElementById('payback-display').innerText = data.payback;
+
+            // Update Buttons Style
+            document.querySelectorAll('.roi-selector').forEach(btn => {
+                btn.classList.remove('bg-slate-900', 'text-white', 'border-slate-900');
+                btn.classList.add('text-slate-600', 'border-slate-200');
+            });
+            // Find the clicked button (rough approximation for this DOM structure)
+            event.currentTarget.classList.remove('text-slate-600', 'border-slate-200');
+            event.currentTarget.classList.add('bg-slate-900', 'text-white', 'border-slate-900');
+
+            // Update Chart Data
+            myChart.data.datasets[0].data = [data.cost, data.savings];
+            myChart.update();
+        }
+
+        // Init interactions
+        document.addEventListener('DOMContentLoaded', () => {
+            initChart();
+        });
+
+    </script>
+</body>
+</html>

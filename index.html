@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hu" class="scroll-smooth scroll-pt-20">
+<html lang="hu" class="scroll-smooth scroll-pt-16">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -85,9 +85,9 @@
             @apply bg-slate-800 text-amber-50 self-end rounded-br-none ml-auto;
         }
         
-        /* Full Screen Section Helper */
+        /* Full Screen Section Helper - INCREASED PADDING (pt-28 pb-24) */
         .fullscreen-section {
-            @apply min-h-screen flex flex-col justify-center py-20;
+            @apply min-h-screen flex flex-col justify-center pt-28 pb-10 overflow-hidden;
         }
     </style>
 </head>
@@ -96,7 +96,7 @@
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-slate-900/95 backdrop-blur shadow-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20"> <!-- Increased height for better spacing -->
+            <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
                     <span class="text-xl font-bold text-white tracking-wider"><span class="text-amber-500">Equilor</span> Strategic Partner</span>
                 </div>
@@ -144,8 +144,8 @@
         </div>
     </nav>
 
-    <!-- 1. HERO SECTION (Full Screen) -->
-    <section id="strategia" class="fullscreen-section bg-slate-900 relative overflow-hidden">
+    <!-- 1. HERO SECTION -->
+    <section id="strategia" class="fullscreen-section bg-slate-900 relative pt-32">
         <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-amber-500 to-amber-700"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <div class="inline-block px-4 py-1 mb-6 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-400 text-sm font-semibold tracking-wide uppercase">
@@ -185,7 +185,7 @@
                 </div>
             </div>
             
-            <!-- Hero CTA Button (Optional, reinforces action) -->
+            <!-- Hero CTA Button -->
             <div class="mt-12">
                 <a href="#kapcsolat" class="inline-block px-8 py-4 bg-transparent border-2 border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-slate-900 font-bold rounded-full transition-all text-lg">
                     Pilot program indítása <i class="fa-solid fa-arrow-right ml-2"></i>
@@ -194,7 +194,7 @@
         </div>
     </section>
 
-    <!-- 2. METHODOLOGY (Full Screen) -->
+    <!-- 2. METHODOLOGY -->
     <section id="modszertan" class="fullscreen-section bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="text-center mb-16">
@@ -227,7 +227,7 @@
         </div>
     </section>
 
-    <!-- 3. TECHNOLOGY: The 3 Pillars (Full Screen) -->
+    <!-- 3. TECHNOLOGY -->
     <section id="technologia" class="fullscreen-section bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="text-center mb-12">
@@ -236,9 +236,7 @@
                 <p class="text-lg text-slate-600 mt-4">Nem automatizálunk rossz folyamatot. A három szint egymásra épülve alkot stabil rendszert.</p>
             </div>
 
-            <!-- Removed items-center to force equal height stretching -->
             <div class="flex flex-col md:flex-row gap-8 justify-center">
-                
                 <!-- 1. Lean Card -->
                 <div class="w-full md:w-1/3 bg-white p-8 rounded-xl shadow-md border-t-4 border-blue-500 transform transition hover:-translate-y-1 hover:shadow-lg flex flex-col h-full">
                     <div class="flex justify-center mb-6">
@@ -258,7 +256,7 @@
                     </ul>
                 </div>
 
-                <!-- Arrow 1 (Self-aligned to center) -->
+                <!-- Arrow 1 -->
                 <div class="hidden md:flex items-center justify-center text-slate-300">
                     <i class="fa-solid fa-arrow-right text-4xl"></i>
                 </div>
@@ -311,12 +309,11 @@
                         <li class="flex items-start"><i class="fa-solid fa-check text-amber-500 mt-1 mr-2"></i> Adaptív válaszadás</li>
                     </ul>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- 4. SECTION A: STRATEGIC LEAN CASES (Dark Mode) -->
+    <!-- 4. SECTION A: LEAN CASES -->
     <section id="lean-cases" class="fullscreen-section bg-slate-900 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
@@ -329,7 +326,6 @@
                         Nem automatizálunk rossz folyamatot. A Lean eszközök (VSM, Process Mapping) biztosítják, hogy a hatékonyságnövelés fenntartható legyen.
                     </p>
                     
-                    <!-- Vertical Tabs for Lean -->
                     <div class="flex flex-col space-y-2">
                         <button class="tab-btn-lean active" onclick="showLeanCase('finance-diag')">
                             1. Pénzügyi diagnózis
@@ -342,7 +338,6 @@
                         </button>
                     </div>
 
-                    <!-- Shared Logic Box -->
                     <div class="mt-10 p-6 bg-slate-800/50 rounded-xl border border-slate-700">
                         <h4 class="text-white font-bold mb-3 flex items-center">
                             <i class="fa-solid fa-layer-group text-amber-500 mr-2"></i> Közös logika
@@ -355,9 +350,9 @@
                     </div>
                 </div>
 
-                <!-- Right: Content Display - FIXED HEIGHT CONTAINER -->
+                <!-- Right: Content Display -->
                 <div class="lg:col-span-2">
-                    <div class="min-h-[550px] h-full"> <!-- Container with min-height to prevent jump -->
+                    <div class="min-h-[550px] h-full">
                         
                         <!-- Case 1 -->
                         <div id="lean-finance-diag" class="lean-card active bg-slate-800 p-8 rounded-2xl border border-slate-700 shadow-2xl h-full flex flex-col">
@@ -366,7 +361,6 @@
                                 <i class="fa-solid fa-magnifying-glass-chart text-3xl text-slate-600"></i>
                             </div>
                             <p class="text-slate-300 mb-6 flex-grow"><strong class="text-amber-500">Probléma:</strong> Átfedések a folyamatok között, redundáns munkavégzés több részlegnél.</p>
-                            
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                                 <div class="bg-slate-900/50 p-4 rounded-lg">
                                     <p class="text-xs text-slate-500 uppercase font-bold mb-1">Módszertan</p>
@@ -377,8 +371,7 @@
                                     <p class="text-white text-sm">Duplikációk és adatútvonalak feltárása.</p>
                                 </div>
                             </div>
-
-                            <div class="border-t border-slate-700 pt-6 mt-auto"> <!-- mt-auto pushes this to bottom -->
+                            <div class="border-t border-slate-700 pt-6 mt-auto">
                                 <h4 class="text-white font-bold mb-4">Eredmények</h4>
                                 <div class="grid grid-cols-3 gap-4 text-center">
                                     <div>
@@ -404,7 +397,6 @@
                                 <i class="fa-solid fa-truck-fast text-3xl text-slate-600"></i>
                             </div>
                             <p class="text-slate-300 mb-6 flex-grow"><strong class="text-amber-500">Probléma:</strong> Eszközhiány, extra fuvarok, indokolatlan beszerzési igények, rossz rutinok.</p>
-                            
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                                 <div class="bg-slate-900/50 p-4 rounded-lg">
                                     <p class="text-xs text-slate-500 uppercase font-bold mb-1">Módszertan</p>
@@ -415,7 +407,6 @@
                                     <p class="text-white text-sm">Mozgáselemzés, "belső körök" megszüntetése.</p>
                                 </div>
                             </div>
-
                             <div class="border-t border-slate-700 pt-6 mt-auto">
                                 <h4 class="text-white font-bold mb-4">Eredmények</h4>
                                 <div class="grid grid-cols-3 gap-4 text-center">
@@ -442,7 +433,6 @@
                                 <i class="fa-solid fa-microchip text-3xl text-slate-600"></i>
                             </div>
                             <p class="text-slate-300 mb-6 flex-grow"><strong class="text-amber-500">Probléma:</strong> Manuális adminisztráció, monotonitásból fakadó hibák, statisztika hiánya.</p>
-                            
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                                 <div class="bg-slate-900/50 p-4 rounded-lg">
                                     <p class="text-xs text-slate-500 uppercase font-bold mb-1">Módszertan</p>
@@ -453,7 +443,6 @@
                                     <p class="text-white text-sm">AI kategorizál, RPA végrehajt.</p>
                                 </div>
                             </div>
-
                             <div class="border-t border-slate-700 pt-6 mt-auto">
                                 <h4 class="text-white font-bold mb-4">Várható eredmények</h4>
                                 <div class="grid grid-cols-3 gap-4 text-center">
@@ -478,7 +467,7 @@
         </div>
     </section>
 
-    <!-- 5. SECTION B: OPERATIONAL RPA CASES (Light Mode) (Full Screen) -->
+    <!-- 5. SECTION B: OPERATIONAL RPA CASES (Light Mode) -->
     <section id="rpa-cases" class="fullscreen-section bg-white border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="text-center mb-12">
@@ -495,8 +484,8 @@
                 <button class="tab-btn-rpa" onclick="showRpaCase('crisis')">Skálázhatóság</button>
             </div>
 
-            <!-- RPA Content - FIXED HEIGHT CONTAINER -->
-            <div class="min-h-[500px] h-full"> <!-- Increased min-height for consistency -->
+            <!-- RPA Content -->
+            <div class="min-h-[500px] h-full">
                 
                 <!-- RPA Case: HR -->
                 <div id="rpa-hr" class="rpa-card active bg-slate-50 rounded-2xl p-8 border border-slate-100 shadow-sm h-full flex flex-col justify-center">
@@ -583,7 +572,7 @@
         </div>
     </section>
 
-    <!-- 6. FUTURE: Hybrid AI (Full Screen) -->
+    <!-- 6. FUTURE: Hybrid AI -->
     <section id="jovo" class="fullscreen-section bg-slate-900 relative overflow-hidden">
         <div class="absolute top-0 right-0 w-1/2 h-full bg-slate-800/30 skew-x-12 transform translate-x-20"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
@@ -611,7 +600,7 @@
         </div>
     </section>
 
-    <!-- 7. ROI SECTION (Full Screen) -->
+    <!-- 7. ROI SECTION -->
     <section id="roi" class="fullscreen-section bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="text-center mb-12">
@@ -645,7 +634,7 @@
         </div>
     </section>
 
-    <!-- 8. CONTACT SECTION (Full Screen) - New Section -->
+    <!-- 8. CONTACT SECTION -->
     <section id="kapcsolat" class="fullscreen-section bg-slate-900 relative overflow-hidden text-center">
         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
         <div class="max-w-4xl mx-auto px-4 relative z-10">
@@ -655,7 +644,7 @@
             <p class="text-xl text-slate-300 mb-10 leading-relaxed">
                 Válasszunk ki közösen 2-3 céget, és bizonyítsuk be a koncepciót kockázatmentesen.
             </p>
-            <a href="mailto:kiss.gaborbalazs@gmail.com" class="inline-block bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-4 px-10 rounded-full transition-transform hover:scale-105 shadow-lg shadow-amber-500/20">
+            <a href="mailto:contact@equilor.hu" class="inline-block bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-4 px-10 rounded-full transition-transform hover:scale-105 shadow-lg shadow-amber-500/20">
                 Kapcsolatfelvétel
             </a>
         </div>
@@ -675,11 +664,9 @@
 
         // LEAN CASES Logic
         function showLeanCase(caseId) {
-            // Toggle Buttons
             document.querySelectorAll('.tab-btn-lean').forEach(btn => btn.classList.remove('active'));
             event.currentTarget.classList.add('active');
             
-            // Toggle Content
             document.querySelectorAll('.lean-card').forEach(card => {
                 card.classList.remove('active');
                 card.classList.add('hidden');
@@ -691,11 +678,9 @@
 
         // RPA CASES Logic
         function showRpaCase(caseId) {
-            // Toggle Buttons
             document.querySelectorAll('.tab-btn-rpa').forEach(btn => btn.classList.remove('active'));
             event.currentTarget.classList.add('active');
 
-            // Toggle Content
             document.querySelectorAll('.rpa-card').forEach(card => {
                 card.classList.remove('active');
                 card.classList.add('hidden');

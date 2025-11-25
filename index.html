@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hu" class="scroll-smooth scroll-pt-16">
+<html lang="hu" class="scroll-smooth scroll-pt-28">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,12 +51,12 @@
             @apply border-amber-500 text-slate-900 bg-white;
         }
 
-        /* Lean Tab Buttons (Dark Mode) */
-        .tab-btn-lean {
-            @apply px-6 py-4 text-sm font-bold uppercase tracking-wider border-l-4 border-transparent text-slate-400 hover:text-white hover:bg-slate-800 transition-all duration-300 text-left w-full;
+        /* Lean Integrated Tabs (New Style) */
+        .lean-tab-btn {
+            @apply flex-1 py-4 text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-white hover:bg-slate-700/50 transition-all duration-300 border-b-4 border-transparent;
         }
-        .tab-btn-lean.active {
-            @apply border-amber-500 text-white bg-slate-800;
+        .lean-tab-btn.active {
+            @apply text-amber-500 border-amber-500 bg-slate-700/30;
         }
 
         .case-card {
@@ -85,9 +85,9 @@
             @apply bg-slate-800 text-amber-50 self-end rounded-br-none ml-auto;
         }
         
-        /* Full Screen Section Helper - INCREASED PADDING (pt-28 pb-24) */
+        /* Full Screen Section Helper */
         .fullscreen-section {
-            @apply min-h-screen flex flex-col justify-center pt-28 pb-10 overflow-hidden;
+            @apply min-h-screen flex flex-col justify-center pt-28 pb-24 overflow-hidden;
         }
     </style>
 </head>
@@ -205,23 +205,23 @@
                 <div class="bg-white p-6 rounded-lg shadow-lg border border-slate-100 text-center hover:-translate-y-2 transition-transform">
                     <div class="w-16 h-16 mx-auto bg-slate-100 rounded-full flex items-center justify-center mb-4"><i class="fa-solid fa-magnifying-glass text-2xl text-slate-600"></i></div>
                     <h3 class="text-lg font-bold text-slate-900">Diagnózis</h3>
-                    <p class="text-sm text-slate-500 mt-2">Adatvezérelt átvilágítás (0-1. fázis)</p>
+                    <p class="text-sm text-slate-500 mt-2">Célmeghatározás és átvilágítás <br>(0-1. fázis)</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-lg border border-slate-100 text-center hover:-translate-y-2 transition-transform">
                     <div class="w-16 h-16 mx-auto bg-slate-100 rounded-full flex items-center justify-center mb-4"><i class="fa-solid fa-compass-drafting text-2xl text-slate-600"></i></div>
                     <h3 class="text-lg font-bold text-slate-900">Tervezés</h3>
-                    <p class="text-sm text-slate-500 mt-2">Gyökérokok és megoldások (2-3. fázis)</p>
+                    <p class="text-sm text-slate-500 mt-2">Gyökérokok és megoldások <br>(2-3. fázis)</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-lg border border-slate-100 text-center hover:-translate-y-2 transition-transform">
                     <div class="w-16 h-16 mx-auto bg-slate-100 rounded-full flex items-center justify-center mb-4"><i class="fa-solid fa-code text-2xl text-slate-600"></i></div>
                     <h3 class="text-lg font-bold text-slate-900">Kivitelezés</h3>
-                    <p class="text-sm text-slate-500 mt-2">Lean, RPA és AI (4-5. fázis)</p>
+                    <p class="text-sm text-slate-500 mt-2">Folyamatoptimalizálás és hatékonyságnövelés<br>(4-5. fázis)</p>
                 </div>
                 <div class="bg-slate-900 p-6 rounded-lg shadow-xl border border-slate-800 text-center hover:-translate-y-2 transition-transform relative">
                     <div class="absolute top-0 right-0 bg-amber-500 text-white text-xs font-bold px-2 py-1">RETAINER</div>
                     <div class="w-16 h-16 mx-auto bg-slate-800 rounded-full flex items-center justify-center mb-4"><i class="fa-solid fa-infinity text-2xl text-amber-500"></i></div>
                     <h3 class="text-lg font-bold text-white">Fenntartás</h3>
-                    <p class="text-sm text-slate-400 mt-2">Folyamatos bevétel (7. fázis)</p>
+                    <p class="text-sm text-slate-400 mt-2">Időszakos visszamérés<br> (6. fázis)</p>
                 </div>
             </div>
         </div>
@@ -313,158 +313,223 @@
         </div>
     </section>
 
-    <!-- 4. SECTION A: LEAN CASES -->
-    <section id="lean-cases" class="fullscreen-section bg-slate-900 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+    <!-- 4. SECTION A: LEAN CASES (UNIFIED CARD LAYOUT) -->
+    <section id="lean-cases" class="fullscreen-section bg-slate-900 relative p-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full h-full flex flex-col justify-center">
+            
+            <!-- Title -->
+            <div class="text-center mb-6">
+                <span class="text-amber-500 font-bold tracking-wide uppercase text-sm">Stratégiai alapok</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 mb-2">A szolgáltatás gerince: Lean módszertan</h2>
+                <p class="text-slate-400 text-sm leading-relaxed max-w-3xl mx-auto">
+                    Nem automatizálunk rossz folyamatot. A Lean eszközök biztosítják, hogy a hatékonyságnövelés fenntartható legyen.
+                </p>
+            </div>
+
+            <!-- UNIFIED CARD CONTAINER -->
+            <div class="bg-slate-800 rounded-2xl border border-slate-700 shadow-2xl overflow-hidden flex flex-col">
                 
-                <!-- Left: Title & Navigation -->
-                <div class="lg:col-span-1">
-                    <span class="text-amber-500 font-bold tracking-wide uppercase text-sm">Stratégiai alapok</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 mb-6">A szolgáltatás gerince: Lean módszertan</h2>
-                    <p class="text-slate-400 mb-8 leading-relaxed">
-                        Nem automatizálunk rossz folyamatot. A Lean eszközök (VSM, Process Map, SIPOC) biztosítják, hogy a hatékonyságnövelés fenntartható legyen.
-                    </p>
+                <!-- CARD HEADER: TABS -->
+                <div class="flex flex-wrap md:flex-nowrap border-b border-slate-700 bg-slate-900/50">
+                    <button class="lean-tab-btn active" onclick="showLeanCase('finance-diag')">
+                        1. Pénzügyi diagnózis
+                    </button>
+                    <button class="lean-tab-btn" onclick="showLeanCase('logistics')">
+                        2. Logisztikai optimalizálás
+                    </button>
+                    <button class="lean-tab-btn" onclick="showLeanCase('ai-rpa')">
+                        3. AI + RPA pilot
+                    </button>
+                </div>
+
+                <!-- CARD BODY: DYNAMIC CONTENT -->
+                <div class="border-2 border-amber-500 p-6 flex-grow">
                     
-                    <div class="flex flex-col space-y-2">
-                        <button class="tab-btn-lean active" onclick="showLeanCase('finance-diag')">
-                            1. Pénzügyi diagnózis
-                        </button>
-                        <button class="tab-btn-lean" onclick="showLeanCase('logistics')">
-                            2. Logisztikai optimalizálás
-                        </button>
-                        <button class="tab-btn-lean" onclick="showLeanCase('ai-rpa')">
-                            3. AI + RPA pilot
-                        </button>
-                    </div>
+                    <!-- Case 1: Finance Diagnosis -->
+                    <div id="lean-finance-diag" class="case-card active">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-bold text-white">Pénzügyi központ diagnózisa</h3>
+                            <i class="fa-solid fa-magnifying-glass-chart text-2xl text-slate-600"></i>
+                        </div>
 
-                    <div class="mt-10 p-6 bg-slate-800/50 rounded-xl border border-slate-700">
-                        <h4 class="text-white font-bold mb-3 flex items-center">
-                            <i class="fa-solid fa-layer-group text-amber-500 mr-2"></i> Közös logika
-                        </h4>
-                        <ul class="text-sm text-slate-400 space-y-2">
-                            <li>• GEMBA bejárás</li>
-                            <li>• VSM minden operatív szinten</li>
-                            <li>• Kereszt-folyamatok feltárása</li>
-                            <li>• Veszteségtípusok (Muda) eliminálása</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Right: Content Display -->
-                <div class="lg:col-span-2">
-                    <div class="min-h-[550px] h-full">
+                        <!-- 3-Column Grid for Problem, Bottleneck, Loss -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                            <div class="bg-red-900/20 border-l-4 border-red-500 p-3 rounded-r-lg">
+                                <p class="text-xs font-bold text-red-400 uppercase mb-1"><i class="fa-solid fa-triangle-exclamation mr-2"></i>Probléma</p>
+                                <p class="text-slate-300 text-xs">Új tárgyi eszköz beszerzése, költséges üzemeltetés</p>
+                            </div>
+                            <div class="bg-amber-900/20 border-l-4 border-amber-500 p-3 rounded-r-lg">
+                                <p class="text-xs font-bold text-amber-400 uppercase mb-1"><i class="fa-solid fa-filter-circle-xmark mr-2"></i>Szűk keresztmetszet</p>
+                                <p class="text-slate-300 text-xs">Átfedések a folyamatok között, redundáns munkavégzés több részlegnél</p>
+                            </div>
+                            <div class="bg-slate-900/50 border-l-4 border-slate-500 p-3 rounded-r-lg">
+                                <p class="text-xs font-bold text-slate-400 uppercase mb-1"><i class="fa-solid fa-money-bill-wave mr-2"></i>Veszteség</p>
+                                <p class="text-slate-300 text-xs">Felesleges mozgás, várakozás </p>
+                            </div>
+                        </div>
                         
-                        <!-- Case 1 -->
-                        <div id="lean-finance-diag" class="lean-card active bg-slate-800 p-8 rounded-2xl border border-slate-700 shadow-2xl h-full flex flex-col">
-                            <div class="flex items-center justify-between mb-6">
-                                <h3 class="text-2xl font-bold text-white">Pénzügyi központ diagnózisa</h3>
-                                <i class="fa-solid fa-magnifying-glass-chart text-3xl text-slate-600"></i>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                            <div class="bg-slate-900/50 p-3 rounded-lg border border-slate-700">
+                                <p class="text-xs text-slate-500 uppercase font-bold mb-1">Eszközök</p>
+                                <p class="text-white text-sm">GEMBA -> Folyamat ábra L1–L4 -> SIPOC + VSM</p>
                             </div>
-                            <p class="text-slate-300 mb-6 flex-grow"><strong class="text-amber-500">Probléma:</strong> Átfedések a folyamatok között, redundáns munkavégzés több részlegnél.</p>
-                            <p class="text-slate-300 mb-6 flex-grow"><strong class="text-amber-500">Veszteség:</strong> Felesleges mozgás, várakozás</p>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                                <div class="bg-slate-900/50 p-4 rounded-lg">
-                                    <p class="text-xs text-slate-500 uppercase font-bold mb-1">Módszertan</p>
-                                    <p class="text-white text-sm">L1–L3 process mapping, SIPOC, VSM</p>
-                                </div>
-                                <div class="bg-slate-900/50 p-4 rounded-lg">
-                                    <p class="text-xs text-slate-500 uppercase font-bold mb-1">Beavatkozás</p>
-                                    <p class="text-white text-sm">Duplikációk és adatútvonalak feltárása.</p>
-                                </div>
-                            </div>
-                            <div class="border-t border-slate-700 pt-6 mt-auto">
-                                <h4 class="text-white font-bold mb-4">Eredmények</h4>
-                                <div class="grid grid-cols-3 gap-4 text-center">
-                                    <div>
-                                        <div class="text-2xl font-bold text-amber-400">12 FTE</div>
-                                        <div class="text-xs text-slate-500">felszabadult</div>
-                                    </div>
-                                    <div>
-                                        <div class="text-2xl font-bold text-amber-400">18%</div>
-                                        <div class="text-xs text-slate-500">időcsökkenés</div>
-                                    </div>
-                                    <div>
-                                        <div class="text-2xl font-bold text-amber-400">20%</div>
-                                        <div class="text-xs text-slate-500">redundancia off</div>
-                                    </div>
-                                </div>
+                            <div class="bg-slate-900/50 p-3 rounded-lg border border-slate-700">
+                                <p class="text-xs text-slate-500 uppercase font-bold mb-1">Beavatkozás</p>
+                                <p class="text-white text-sm">Duplikációk feltárása, standardizált anyagáramlás.</p>
                             </div>
                         </div>
 
-                        <!-- Case 2 -->
-                        <div id="lean-logistics" class="lean-card hidden bg-slate-800 p-8 rounded-2xl border border-slate-700 shadow-2xl h-full flex flex-col">
-                            <div class="flex items-center justify-between mb-6">
-                                <h3 class="text-2xl font-bold text-white">Logisztikai optimalizálás</h3>
-                                <i class="fa-solid fa-truck-fast text-3xl text-slate-600"></i>
-                            </div>
-                            <p class="text-slate-300 mb-6 flex-grow"><strong class="text-amber-500">Probléma:</strong> Eszközhiány, extra fuvarok, indokolatlan beszerzési igények, rossz rutinok.</p>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                                <div class="bg-slate-900/50 p-4 rounded-lg">
-                                    <p class="text-xs text-slate-500 uppercase font-bold mb-1">Módszertan</p>
-                                    <p class="text-white text-sm">Operatív VSM, spaghetti-diagram</p>
+                        <div class="pt-4 border-t border-slate-700/50">
+                            <h4 class="text-white font-bold mb-3 text-sm">Eredmények</h4>
+                            <div class="grid grid-cols-3 gap-4 text-center">
+                                <div>
+                                    <div class="text-xl font-bold text-amber-400">12 FTE</div>
+                                    <div class="text-xs text-slate-500">felszabadult</div>
                                 </div>
-                                <div class="bg-slate-900/50 p-4 rounded-lg">
-                                    <p class="text-xs text-slate-500 uppercase font-bold mb-1">Beavatkozás</p>
-                                    <p class="text-white text-sm">Mozgáselemzés, "belső körök" megszüntetése.</p>
+                                <div>
+                                    <div class="text-xl font-bold text-amber-400">18%</div>
+                                    <div class="text-xs text-slate-500">időcsökkenés</div>
                                 </div>
-                            </div>
-                            <div class="border-t border-slate-700 pt-6 mt-auto">
-                                <h4 class="text-white font-bold mb-4">Eredmények</h4>
-                                <div class="grid grid-cols-3 gap-4 text-center">
-                                    <div>
-                                        <div class="text-2xl font-bold text-amber-400">-6%</div>
-                                        <div class="text-xs text-slate-500">fuvarköltség</div>
-                                    </div>
-                                    <div>
-                                        <div class="text-2xl font-bold text-amber-400">0 Ft</div>
-                                        <div class="text-xs text-slate-500">beruházás</div>
-                                    </div>
-                                    <div>
-                                        <div class="text-2xl font-bold text-amber-400">Stabil</div>
-                                        <div class="text-xs text-slate-500">belső logisztika</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Case 3 -->
-                        <div id="lean-ai-rpa" class="lean-card hidden bg-slate-800 p-8 rounded-2xl border border-slate-700 shadow-2xl h-full flex flex-col">
-                            <div class="flex items-center justify-between mb-6">
-                                <h3 class="text-2xl font-bold text-white">AI + RPA integrált pilot</h3>
-                                <i class="fa-solid fa-microchip text-3xl text-slate-600"></i>
-                            </div>
-                            <p class="text-slate-300 mb-6 flex-grow"><strong class="text-amber-500">Probléma:</strong> Manuális adminisztráció, monotonitásból fakadó hibák, statisztika hiánya.</p>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                                <div class="bg-slate-900/50 p-4 rounded-lg">
-                                    <p class="text-xs text-slate-500 uppercase font-bold mb-1">Módszertan</p>
-                                    <p class="text-white text-sm">As-is / To-be modellek, AI dok. elemzés</p>
-                                </div>
-                                <div class="bg-slate-900/50 p-4 rounded-lg">
-                                    <p class="text-xs text-slate-500 uppercase font-bold mb-1">Beavatkozás</p>
-                                    <p class="text-white text-sm">AI kategorizál, RPA végrehajt.</p>
-                                </div>
-                            </div>
-                            <div class="border-t border-slate-700 pt-6 mt-auto">
-                                <h4 class="text-white font-bold mb-4">Várható eredmények</h4>
-                                <div class="grid grid-cols-3 gap-4 text-center">
-                                    <div>
-                                        <div class="text-2xl font-bold text-amber-400">70%</div>
-                                        <div class="text-xs text-slate-500">munka kiváltás</div>
-                                    </div>
-                                    <div>
-                                        <div class="text-2xl font-bold text-amber-400">0</div>
-                                        <div class="text-xs text-slate-500">hibaarány</div>
-                                    </div>
-                                    <div>
-                                        <div class="text-2xl font-bold text-amber-400">Auto</div>
-                                        <div class="text-xs text-slate-500">riportálás</div>
-                                    </div>
+                                <div>
+                                    <div class="text-xl font-bold text-amber-400">20%</div>
+                                    <div class="text-xs text-slate-500">redundancia off</div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Case 2: Logistics -->
+                    <div id="lean-logistics" class="case-card hidden">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-bold text-white">Logisztikai optimalizálás</h3>
+                            <i class="fa-solid fa-truck-fast text-2xl text-slate-600"></i>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                            <div class="bg-red-900/20 border-l-4 border-red-500 p-3 rounded-r-lg">
+                                <p class="text-xs font-bold text-red-400 uppercase mb-1">Probléma</p>
+                                <p class="text-slate-300 text-xs">Eszközhiány, magas fuvarköltség</p>
+                            </div>
+                            <div class="bg-amber-900/20 border-l-4 border-amber-500 p-3 rounded-r-lg">
+                                <p class="text-xs font-bold text-amber-400 uppercase mb-1">Szűk keresztmetszet</p>
+                                <p class="text-slate-300 text-xs">AD-HOC jellegű eszközellátás és nyomon követés, indokolatlan beszerzési igények és fuvarköltségek, rossz rutinok.</p>
+                            </div>
+                            <div class="bg-slate-900/50 border-l-4 border-slate-500 p-3 rounded-r-lg">
+                                <p class="text-xs font-bold text-slate-400 uppercase mb-1">Veszteség</p>
+                                <p class="text-slate-300 text-xs">Túlzott és felesleges mozgás, készlet</p>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                            <div class="bg-slate-900/50 p-3 rounded-lg border border-slate-700">
+                                <p class="text-xs text-slate-500 uppercase font-bold mb-1">Eszközök</p>
+                                <p class="text-white text-sm">Operatív VSM, Spaghetti-diagram, Stop to Fix</p>
+                            </div>
+                            <div class="bg-slate-900/50 p-3 rounded-lg border border-slate-700">
+                                <p class="text-xs text-slate-500 uppercase font-bold mb-1">Beavatkozás</p>
+                                <p class="text-white text-sm">Ellátási lánc optimalizálás, egységes munkafolyamat kialakítása.</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-700/50">
+                            <h4 class="text-white font-bold mb-3 text-sm">Eredmények</h4>
+                            <div class="grid grid-cols-3 gap-4 text-center">
+                                <div>
+                                    <div class="text-xl font-bold text-amber-400">-6%</div>
+                                    <div class="text-xs text-slate-500">fuvarköltség</div>
+                                </div>
+                                <div>
+                                    <div class="text-xl font-bold text-amber-400">0 Ft</div>
+                                    <div class="text-xs text-slate-500">beruházás</div>
+                                </div>
+                                <div>
+                                    <div class="text-xl font-bold text-amber-400">Optimális ellátási lánc</div>
+                                    <div class="text-xs text-slate-500">belső logisztika</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case 3: AI + RPA -->
+                    <div id="lean-ai-rpa" class="case-card hidden">
+                        <!--<div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-bold text-white">AI + RPA integrált pilot</h3>
+                            <i class="fa-solid fa-microchip text-2xl text-slate-600"></i>
+                        </div>-->
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                            <div class="bg-red-900/20 border-l-4 border-red-500 p-3 rounded-r-lg">
+                                <p class="text-xs font-bold text-red-400 uppercase mb-1">Probléma</p>
+                                <p class="text-slate-300 text-xs">Manuális feldolgozás, statisztika hiánya és az ügyfél elégedettség csökkenése</p>
+                            </div>
+                            <div class="bg-amber-900/20 border-l-4 border-amber-500 p-3 rounded-r-lg">
+                                <p class="text-xs font-bold text-amber-400 uppercase mb-1">Szűk keresztmetszet</p>
+                                <p class="text-slate-300 text-xs">Monotonitásból fakadó hibák, nagyszámú és repetitív munkavégzés </p>
+                            </div>
+                            <div class="bg-slate-900/50 border-l-4 border-slate-500 p-3 rounded-r-lg">
+                                <p class="text-xs font-bold text-slate-400 uppercase mb-1">Veszteség</p>
+                                <p class="text-slate-300 text-xs">Hibák, várakozás, kihasználatlan kreativitás</p>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                            <div class="bg-slate-900/50 p-3 rounded-lg border border-slate-700">
+                                <p class="text-xs text-slate-500 uppercase font-bold mb-1">Eszközök</p>
+                                <p class="text-white text-sm">GEMBA -> As-Is/To-be folyamatábrák, AI dok. elemzés</p>
+                            </div>
+                            <div class="bg-slate-900/50 p-3 rounded-lg border border-slate-700">
+                                <p class="text-xs text-slate-500 uppercase font-bold mb-1">Beavatkozás</p>
+                                <p class="text-white text-sm">AI kategorizál és validál, RPA végrehajt.</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-700/50">
+                            <h4 class="text-white font-bold mb-3 text-sm">Várható eredmények</h4>
+                            <div class="grid grid-cols-3 gap-4 text-center">
+                                <div>
+                                    <div class="text-xl font-bold text-amber-400">70%</div>
+                                    <div class="text-xs text-slate-500">munka kiváltás</div>
+                                </div>
+                                <div>
+                                    <div class="text-xl font-bold text-amber-400">-80%</div>
+                                    <div class="text-xs text-slate-500">feldolgozási idő</div>
+                                </div>
+                                <div>
+                                    <div class="text-xl font-bold text-amber-400">Auto</div>
+                                    <div class="text-xs text-slate-500">riportálás</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
+
+                <!-- CARD FOOTER: COMMON LOGIC -->
+                <div class="bg-slate-900/80 p-4 border-t border-slate-700">
+                    <div class="flex items-center mb-2">
+                        <i class="fa-solid fa-layer-group text-amber-500 mr-2"></i>
+                        <h4 class="text-white font-bold text-sm uppercase tracking-wide">Közös Lean mögöttes logika</h4>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-slate-400 text-xs">
+                        <div>
+                            <strong class="text-slate-300 block mb-1">1. GEMBA</strong>
+                            L1–L4 folyamattérkép vezetői, szakértői szinteken.
+                        </div>
+						<div>
+                            <strong class="text-slate-300 block mb-1">2. VSM minden szinten</strong>
+                            Értékáram térkép megrajzolása
+                        </div>
+                        <div>
+                            <strong class="text-slate-300 block mb-1">3. Kereszt-folyamatok</strong>
+                            Feltártuk a más részlegeket érintő hatásokat (nincs silózás).
+                        </div>
+                        <div>
+                            <strong class="text-slate-300 block mb-1">4. Veszteségcsökkentés</strong>
+                            Fókuszban: túlterhelés, várakozás és a felesleges munka.
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -505,7 +570,7 @@
                         </div>
                         <div class="bg-white p-6 rounded-xl shadow-md h-full flex flex-col justify-center">
                             <h4 class="font-bold text-slate-800 mb-4">Eredmény</h4>
-                            <p class="text-sm text-slate-600">A robot automatikusan rögzíti a rendszerben a munkavállalói adatokat. A HR újra emberekkel foglalkozhat.</p>
+                            <p class="text-sm text-slate-600">A robot automatikusan kinyeri az adatokat az igazolványokból és rögzíti a rendszerben. A HR újra emberekkel foglalkozhat.</p>
                         </div>
                     </div>
                 </div>
@@ -583,6 +648,36 @@
                     <div class="badge bg-amber-500/20 text-amber-400 px-3 py-1 rounded-full text-xs font-bold inline-block mb-6">A JÖVŐ: HIBRID AUTOMATIZÁCIÓ</div>
                     <h2 class="text-4xl font-bold mb-6">Beszélgetés a dokumentumokkal</h2>
                     <p class="text-slate-300 text-lg mb-8">Ahol a dokumentum (szerződés) és az ERP (SAP) eddig nem kommunikált, ott most az AI a tolmács.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-slate-800 p-3 rounded-lg mr-4">
+                                <i class="fa-solid fa-comments text-amber-500 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Vállalati chatbot</h4>
+                                <p class="text-slate-400 text-sm">Kérdezzen a több száz oldalas ÁSZF-től úgy, mintha egy kollégával beszélne.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-slate-800 p-3 rounded-lg mr-4">
+                                <i class="fa-solid fa-network-wired text-amber-500 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Intelligens összekapcsolás</h4>
+                                <p class="text-slate-400 text-sm">Az AI kiolvassa a keretösszeget a PDF-ből, a robot pedig ellenőrzi a költést az SAP-ban.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-slate-800 p-3 rounded-lg mr-4">
+                                <i class="fa-solid fa-envelope-open-text text-amber-500 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Ügyfél megkeresések osztályozása</h4>
+                                <p class="text-slate-400 text-sm">Auto-klasszifikáció: Bejövő e-mailek (panasz, ajánlatkérés) szétválogatása és priorizálása AI segítségével.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- Chat Interface -->
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-700 max-w-md mx-auto lg:mr-0">
@@ -666,16 +761,24 @@
 
         // LEAN CASES Logic
         function showLeanCase(caseId) {
-            document.querySelectorAll('.tab-btn-lean').forEach(btn => btn.classList.remove('active'));
+            // Toggle Buttons (Inside the unified card header)
+            document.querySelectorAll('.lean-tab-btn').forEach(btn => btn.classList.remove('active'));
+            // Find button that triggered this or manually manage active state
+            // Here we use a simple approach by matching button text or index if strictly controlled,
+            // but clearer is passing `this` or managing by ID.
+            // Since onclick="showLeanCase(...)" is on the button, `event.currentTarget` works.
             event.currentTarget.classList.add('active');
             
-            document.querySelectorAll('.lean-card').forEach(card => {
+            // Toggle Content
+            document.querySelectorAll('.case-card').forEach(card => {
                 card.classList.remove('active');
                 card.classList.add('hidden');
             });
             const selected = document.getElementById('lean-' + caseId);
-            selected.classList.remove('hidden');
-            selected.classList.add('active');
+            if(selected) {
+                selected.classList.remove('hidden');
+                selected.classList.add('active');
+            }
         }
 
         // RPA CASES Logic
@@ -748,7 +851,4 @@
         });
     </script>
 </body>
-
 </html>
-
-
